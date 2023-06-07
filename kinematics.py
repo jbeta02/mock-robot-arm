@@ -27,7 +27,7 @@ class Kinematics:
         angle2 = math.radians(angle2)
         angle3 = math.radians(angle3)
 
-        # projection of axis_1 on axis_1 when angle1 is 0
+        # projection of axis_1 on axis_0 when angle1 is 0
         projection_of_1_on_0 = [
             [1, 0, 0],
             [0, 0, -1],
