@@ -34,9 +34,9 @@ def print_htm_matrix(matrix):
 
 
 # angles based on kinematic diagram
-angle1 = 30 # 20 30
-angle2 = 92 # 68 92
-angle3 = 181 # 160 181
+angle1 = 0 # 20 30
+angle2 = 90 # 68 92
+angle3 = 0 # 160 181
 
 link1 = 1
 link2 = 1
@@ -52,7 +52,7 @@ print_htm_matrix(end_position)
 end_position_a = kinematics.get_end_effector_position_alternate(angle1=angle1, angle2=angle2, angle3=angle3, link_len1=link1, link_len2=link2, base_height=base_height)
 
 # Denavit Hartenberg method for forward kinematics
-print_htm_matrix(end_position_a)
+# print_htm_matrix(end_position_a)
 
 
 # forward kinematics trig implementation

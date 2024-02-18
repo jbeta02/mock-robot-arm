@@ -39,6 +39,18 @@ class Kinematics:
         R_12 = np.dot(self.identity_matrix, self._z_rotation(angle2))
         R_23 = np.dot(self.identity_matrix, self._z_rotation(angle3))
 
+        # print("angle 2, z_rotation")
+        # self.print_rotation_matrix(self._z_rotation(angle2))
+        # print("angle 3, z_rotation")
+        # self.print_rotation_matrix(self._z_rotation(angle3))
+        #
+        # print("R_01")
+        # self.print_rotation_matrix(R_01)
+        # print("R_12")
+        # self.print_rotation_matrix(R_12)
+        # print("R_23")
+        # self.print_rotation_matrix(R_23)
+
         # multiply together
         R_03 = np.dot(np.dot(R_01, R_12), R_23)  # same as R_01 @ R_12 @ R_23 (np.dot only takes 2 parameters)
 
@@ -122,8 +134,6 @@ class Kinematics:
             angle1 = math.atan(end_y / end_x)
 
 
-        # if andle2 is positive (elbow down)
-
         # get angle2
         big_tri_base = math.sqrt(end_x**2 + end_y**2)
         big_tri_height = end_z - base_height
@@ -190,3 +200,18 @@ class Kinematics:
             [math.sin(theta), math.cos(theta), 0],
             [0, 0, 1]
         ]
+
+    def print_htm_matrix(self, title, matrix):
+
+        print("\n" + title + " : ")
+        for row in matrix:
+            print("{:.2f}  {:.2f}  {:.2f}  {:.2f}".format(row[0], row[1], row[2], row[3]))
+
+        print("\n")
+
+    def print_rotation_matrix(self, matrix):
+
+        print("rotation matrix: ")
+        for row in matrix:
+            print("{:.2f}  {:.2f}  {:.2f}".format(row[0], row[1], row[2]))
+        print("\n")
